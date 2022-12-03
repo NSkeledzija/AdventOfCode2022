@@ -122,6 +122,4 @@ fn main() {
 
         _ => println!("Unimplemented day you fuck!"),
     };
-
-    println!("Hello, world!");
 }

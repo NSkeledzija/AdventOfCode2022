@@ -11,3 +11,4 @@ reqwest = { version = "0.11.13", features=["cookies", "blocking"] }
 futures = "0.3.25"
 tokio = "1.22.0"
 phf = { version = "0.11", features = ["macros"] }
+itertools = "0.10.5"
