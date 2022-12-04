@@ -9,6 +9,7 @@ use tokio::runtime::Runtime;
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 const PROJECT_DIRECTORY: &str = "/home/niksaskeledzija/projects/adventofcode";
 
@@ -111,6 +112,15 @@ fn main() {
         None => get_current_day(),
     };
 
+    if day > 25 {
+        if user_provided_day.is_some() {
+            println!("Day {} is not a part of the advent calendar!", day);
+        } else {
+            println!("No more advent of code tasks :(");
+        }
+        return;
+    }
+
     if !day_initialized(day) {
         initialize_day(day);
     }
@@ -119,6 +129,7 @@ fn main() {
         1 => day1::solve(),
         2 => day2::solve(),
         3 => day3::solve(),
+        4 => day4::solve(),
 
         _ => println!("Unimplemented day you fuck!"),
     };
