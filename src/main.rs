@@ -10,6 +10,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 const PROJECT_DIRECTORY: &str = "/home/niksaskeledzija/projects/adventofcode";
 
@@ -130,6 +131,7 @@ fn main() {
         2 => day2::solve(),
         3 => day3::solve(),
         4 => day4::solve(),
+        5 => day5::solve(),
 
         _ => println!("Unimplemented day you fuck!"),
     };
