@@ -140,7 +140,6 @@ fn part2() {
 }
 
 pub fn solve() {
-    // example();
     part1();
     part2();
 }
