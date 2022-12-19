@@ -7,6 +7,7 @@ use std::sync::Arc;
 use tokio::runtime::Runtime;
 
 mod day1;
+mod day10;
 mod day2;
 mod day3;
 mod day4;
@@ -140,6 +141,7 @@ fn main() {
         7 => day7::solve(),
         8 => day8::solve(),
         9 => day9::solve(),
+        10 => day10::solve(),
 
         _ => println!("Unimplemented day you fuck!"),
     };
