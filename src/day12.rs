@@ -194,6 +194,7 @@ pub fn part2() {
         }
     }
 }
+
 pub fn solve() {
     part1();
     part2();
