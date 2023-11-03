@@ -1,7 +1,6 @@
 use regex::Regex;
 use std::collections::HashSet;
 use std::fs;
-use std::slice;
 
 use crate::PROJECT_DIRECTORY;
 
@@ -51,22 +50,6 @@ fn covers(row: i32, sensor: &Sensor) -> Option<(i32, i32)> {
 
     let lr = total_distance - sensor_to_row;
     return Some((sensor.position.0 - lr, sensor.position.0 + lr));
-}
-
-fn covers_point(point: (i32, i32), sensor: &Sensor) -> bool {
-    let sensor_to_beacon_x = (sensor.position.0 - sensor.beacon.0).abs();
-    let sensor_to_beacon_y = (sensor.position.1 - sensor.beacon.1).abs();
-
-    let sensor_to_point_x = (sensor.position.0 - point.0).abs();
-    let sensor_to_point_y = (sensor.position.1 - point.1).abs();
-
-    let total_distance_to_beacon = sensor_to_beacon_x + sensor_to_beacon_y;
-    let total_distance_to_point = sensor_to_point_x + sensor_to_point_y;
-
-    if total_distance_to_point <= total_distance_to_beacon {
-        return true;
-    }
-    return false;
 }
 
 fn part1() {

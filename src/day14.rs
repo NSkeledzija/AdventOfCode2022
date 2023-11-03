@@ -80,7 +80,7 @@ pub fn build_big_cave(input: &str) -> (usize, Vec<Vec<char>>) {
     let mut max_y: usize = 0;
     let min_y: usize = 0;
     for rock in &rocks {
-        for (x, y) in rock {
+        for (_, y) in rock {
             max_y = std::cmp::max(*y, max_y);
         }
     }

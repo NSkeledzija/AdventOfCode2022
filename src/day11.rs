@@ -11,7 +11,6 @@ enum Operation {
 
 #[derive(Debug)]
 struct Monkey {
-    id: u32,
     starting_items: VecDeque<u64>,
     operation: Operation,
     arg: u32,
@@ -70,7 +69,7 @@ pub fn parse_throw(throw: &str) -> u32 {
 fn parse_monkey(monkey: &str) -> Monkey {
     let mut tokens = monkey.split('\n');
 
-    let id = parse_monkey_id(tokens.next().unwrap());
+    let _ = parse_monkey_id(tokens.next().unwrap());
     let starting_items = parse_starting_items(tokens.next().unwrap());
     let (operation, arg) = parse_operation(tokens.next().unwrap());
     let test = parse_test(tokens.next().unwrap());
@@ -78,7 +77,6 @@ fn parse_monkey(monkey: &str) -> Monkey {
     let if_false = parse_throw(tokens.next().unwrap());
 
     Monkey {
-        id,
         starting_items,
         operation,
         arg,

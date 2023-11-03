@@ -1,4 +1,5 @@
 use chrono::Datelike;
+use chrono::Utc;
 use reqwest::{cookie::Jar, Url};
 use std::env;
 use std::fs;
@@ -22,7 +23,7 @@ mod day7;
 mod day8;
 mod day9;
 
-const PROJECT_DIRECTORY: &str = "/home/niksaskeledzija/projects/adventofcode";
+const PROJECT_DIRECTORY: &str = "/home/nskeledz/projects/AdventOfCode2022";
 
 fn input_url(day: u32) -> Url {
     let url_str = format!("https://adventofcode.com/2022/day/{}/input", day);
@@ -109,19 +110,20 @@ fn parse_day_argument() -> Option<u32> {
     }
 }
 
-fn get_current_day() -> u32 {
-    let current_day = chrono::Utc::now().day();
-    println!("Using current day as fallback: {current_day}");
-    return current_day;
-}
-
 fn main() {
     let user_provided_day = parse_day_argument();
 
-    let day = match user_provided_day {
-        Some(value) => value,
-        None => get_current_day(),
-    };
+    let day: u32;
+    if user_provided_day.is_none() {
+        if Utc::now().year() == 2022 && Utc::now().month() == 12 {
+            day = Utc::now().day();
+        } else {
+            println!("Provide day!!!!");
+            return;
+        }
+    } else {
+        day = user_provided_day.unwrap();
+    }
 
     if day > 25 {
         if user_provided_day.is_some() {

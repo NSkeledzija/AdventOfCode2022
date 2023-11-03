@@ -58,7 +58,7 @@ pub fn part1() {
 
         let step = dir_to_step(dir);
 
-        println!("{} for {}", dir.clone(), length.clone());
+        println!("{} for {}", dir, length.clone());
 
         for _ in 0..length {
             h.0 += step.0;
@@ -127,7 +127,7 @@ pub fn part2() {
 
         let step = dir_to_step(dir);
 
-        println!("{} for {}", dir.clone(), length.clone());
+        println!("{} for {}", dir, length.clone());
 
         for _ in 0..length {
             r[0].0 += step.0;

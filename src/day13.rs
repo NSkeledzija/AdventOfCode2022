@@ -55,7 +55,6 @@ fn parse_list(list: &mut Peekable<Chars>) -> Vec<Value> {
         if current == ']' {
             if !current_value.is_empty() {
                 out.push(Value::Int(str::parse::<u32>(&current_value).unwrap()));
-                current_value = String::from("");
             }
             return out;
         } else if current == ',' {
@@ -148,10 +147,8 @@ pub fn part2() {
 
     let comparisons = input.split("\n\n");
 
-    let mut sum = 0;
-
     let mut all_lists: Vec<Vec<Value>> = Vec::new();
-    for (i, comparison) in comparisons.enumerate() {
+    for (_, comparison) in comparisons.enumerate() {
         let mut lists = comparison.split('\n');
         let list1 = lists.next();
         let list2 = lists.next();
